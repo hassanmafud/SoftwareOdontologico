@@ -53,5 +53,15 @@ namespace SoftwareOdontologico.Formularios
 
             }
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

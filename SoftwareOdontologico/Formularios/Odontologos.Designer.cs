@@ -57,7 +57,7 @@
             this.dgvOdontologos.Location = new System.Drawing.Point(25, 71);
             this.dgvOdontologos.Name = "dgvOdontologos";
             this.dgvOdontologos.ReadOnly = true;
-            this.dgvOdontologos.Size = new System.Drawing.Size(744, 238);
+            this.dgvOdontologos.Size = new System.Drawing.Size(744, 268);
             this.dgvOdontologos.TabIndex = 0;
             // 
             // lblOdontologos
@@ -66,9 +66,9 @@
             this.lblOdontologos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             this.lblOdontologos.Location = new System.Drawing.Point(45, 32);
             this.lblOdontologos.Name = "lblOdontologos";
-            this.lblOdontologos.Size = new System.Drawing.Size(130, 24);
+            this.lblOdontologos.Size = new System.Drawing.Size(202, 24);
             this.lblOdontologos.TabIndex = 1;
-            this.lblOdontologos.Text = "Odontologos";
+            this.lblOdontologos.Text = "Listado Odontologos";
             // 
             // nroMatricula
             // 
@@ -110,16 +110,17 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(417, 345);
+            this.btnEliminar.Location = new System.Drawing.Point(376, 371);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(109, 23);
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(553, 345);
+            this.btnModificar.Location = new System.Drawing.Point(519, 371);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(109, 23);
             this.btnModificar.TabIndex = 3;
@@ -128,18 +129,19 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(679, 415);
+            this.btnSalir.Location = new System.Drawing.Point(660, 415);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(109, 23);
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // Odontologos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(786, 450);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);

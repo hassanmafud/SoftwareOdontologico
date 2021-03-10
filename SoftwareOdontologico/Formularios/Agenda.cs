@@ -35,8 +35,6 @@ namespace SoftwareOdontologico
             cmbOdontologos.DisplayMember = "nombre";
             cmbOdontologos.DataSource = tablaOdontologos;
 
-
-
         }
     }
 }

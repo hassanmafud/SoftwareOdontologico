@@ -96,5 +96,10 @@ namespace SoftwareOdontologico.Formularios
             }
 
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
