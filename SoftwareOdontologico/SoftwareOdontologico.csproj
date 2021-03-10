@@ -82,6 +82,12 @@
     <Compile Include="Formularios\Odontologos.Designer.cs">
       <DependentUpon>Odontologos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Pacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Pacientes.Designer.cs">
+      <DependentUpon>Pacientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\Odontologo.cs" />
     <Compile Include="Modelos\Paciente.cs" />
     <Compile Include="Program.cs" />
@@ -99,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Odontologos.resx">
       <DependentUpon>Odontologos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Pacientes.resx">
+      <DependentUpon>Pacientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

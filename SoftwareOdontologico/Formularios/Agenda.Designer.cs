@@ -102,7 +102,7 @@
             this.tardeFin});
             this.dataGridView2.Location = new System.Drawing.Point(16, 159);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(654, 146);
+            this.dataGridView2.Size = new System.Drawing.Size(543, 146);
             this.dataGridView2.TabIndex = 5;
             // 
             // dia

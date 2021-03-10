@@ -96,6 +96,7 @@
             this.agregarModificarPacienteToolStripMenuItem.Name = "agregarModificarPacienteToolStripMenuItem";
             this.agregarModificarPacienteToolStripMenuItem.Size = new System.Drawing.Size(298, 22);
             this.agregarModificarPacienteToolStripMenuItem.Text = "Agregar / Modificar Paciente";
+            this.agregarModificarPacienteToolStripMenuItem.Click += new System.EventHandler(this.AgregarModificarPacientes);
             // 
             // agendaToolStripMenuItem
             // 

@@ -44,6 +44,12 @@ namespace SoftwareOdontologico.Formularios
             var cons_odont = new Odontologos();
             cons_odont.ShowDialog();
         }
+
+        private void AgregarModificarPacientes(object sender, EventArgs e)
+        {
+            var a_mpacientes = new Pacientes();
+            a_mpacientes.ShowDialog();
+        }
     }
 
 }

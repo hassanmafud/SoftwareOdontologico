@@ -52,6 +52,12 @@ namespace SoftwareOdontologico.Repositorios
             var dtablaOdontologos = _BD.consulta(sqltxt);
             return dtablaOdontologos;
         }
+        
+        public bool Eliminar(string matricula)
+        {
+            string sqltxt = $"DELETE FROM Odontologos where nroMatricula = {matricula}";
+            return _BD.EjecutarSQL(sqltxt);
+        }
        
     }
 }

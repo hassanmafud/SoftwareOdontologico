@@ -24,11 +24,13 @@ namespace SoftwareOdontologico.Formularios
 
         private void Odontologos_Load(object sender, EventArgs e)
         {
+
             ActualizarGrilla();
         }
 
         public void ActualizarGrilla()
         {
+            dgvOdontologos.Rows.Clear();
             var odontologos = odontologosRepo.ObtenerOdontologosDT().Rows;
             // Recorre cada fila de la tabla Odontologos
             foreach (DataRow odont in odontologos)
@@ -61,7 +63,22 @@ namespace SoftwareOdontologico.Formularios
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            var filas = dgvOdontologos.SelectedRows;
+
+            foreach ( DataGridViewRow f in filas)
+            {
+
+                var matricula = f.Cells[0].Value.ToString();
+                odontologosRepo.Eliminar(matricula);
+            }
             
+            ActualizarGrilla();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            var mod_odont = new AgregarOdontologo();
+            mod_odont.ShowDialog();
         }
     }
 }
