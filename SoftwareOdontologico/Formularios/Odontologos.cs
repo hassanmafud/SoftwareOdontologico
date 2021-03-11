@@ -27,7 +27,7 @@ namespace SoftwareOdontologico.Formularios
 
             ActualizarGrilla();
         }
-
+        
         public void ActualizarGrilla()
         {
             dgvOdontologos.Rows.Clear();
@@ -55,15 +55,20 @@ namespace SoftwareOdontologico.Formularios
 
             }
         }
-
+        
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
         }
-
+        //Eliminar Fila
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             var filas = dgvOdontologos.SelectedRows;
+            if (filas.Count  == 0 || filas.Count > 1)
+            {
+                MessageBox.Show("Debe Seleccionar una fila");
+                return;
+            }
 
             foreach ( DataGridViewRow f in filas)
             {
@@ -74,11 +79,34 @@ namespace SoftwareOdontologico.Formularios
             
             ActualizarGrilla();
         }
-
+        //Modificar Fila
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            var mod_odont = new AgregarOdontologo();
-            mod_odont.ShowDialog();
+            var filasSelec = dgvOdontologos.SelectedRows;
+            // valido que las filas seleccionadas sea 1
+            if (filasSelec.Count == 0 || filasSelec.Count > 1)
+            {
+                MessageBox.Show("Debe Seleccionar una fila");
+                return;
+
+            }
+            
+            //recorro la fila seleccionada y me quedo con la matricula 
+            foreach (DataGridViewRow fila in filasSelec)
+            {
+                // creo una variable nroMatricula donde almacenare la matricula de la fila seleccionada en la dgv
+                var nroMatricula = fila.Cells[0].Value;
+                var elec = MessageBox.Show("Esta seguro que desea modificar los datos","", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(elec == DialogResult.No)
+                {
+                    return;
+                }
+                //llamo al formulario para editar odontologo y le paso por parametro la matricula como string 
+                var mod_odont = new AgregarOdontologo(nroMatricula.ToString());
+      
+                mod_odont.ShowDialog();
+                ActualizarGrilla();
+            }
         }
     }
 }

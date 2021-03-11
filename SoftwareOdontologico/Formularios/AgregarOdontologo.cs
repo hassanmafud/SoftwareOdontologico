@@ -15,16 +15,41 @@ namespace SoftwareOdontologico.Formularios
     public partial class AgregarOdontologo : Form
     {
         OdontologosRepo odontologosRepo;
+        Odontologo odontologo;
+        string nroMat;
         public AgregarOdontologo()
         {
             InitializeComponent();
+           
+        }
+        // constructor que recibe la matricula para modificar dicho odontologo
+        // con el numero de matricula consulto la base datos y obtengo el odontologo
+        public AgregarOdontologo(string matricula)
+        {
+            InitializeComponent(); 
             odontologosRepo = new OdontologosRepo();
+            odontologo = odontologosRepo.ObtenerOdontMatricula(matricula);
+            nroMat = matricula;
+            RellenarFormEditable();
         }
 
+       
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
+            
         }
+        public void RellenarFormEditable()
+        {
+            txtMatricula.Text = odontologo.nroMatricula.ToString();
+            txtDocumento.Text = odontologo.nroDocumento.ToString();
+            txtNombre.Text = odontologo.nombre;
+            txtApellido.Text = odontologo.apellido;
+            txtDomicilio.Text = odontologo.domicilio;
+            dtpFechaNacimiento.Text = odontologo.fechaNacimiento.ToString();
+          
+        }
+        //Limpiar campos del formulario 
         private void LimpiarCampos()
         {
             txtApellido.Clear();
@@ -36,7 +61,7 @@ namespace SoftwareOdontologico.Formularios
 
 
         }
-
+        //Agregar odontologo
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             var odontologo = new Odontologo();
@@ -80,6 +105,11 @@ namespace SoftwareOdontologico.Formularios
                     MessageBox.Show("Odontologo Registrado con exito");
                     LimpiarCampos();
                 }
+            }
+            //agregar aqui
+            if (nroMat != txtMatricula.Text)
+            {
+                odontologosRepo.Eliminar(nroMat);
             }
             else {
                 //MessageBox requiere 4 parametros.

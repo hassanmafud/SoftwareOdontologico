@@ -58,6 +58,32 @@ namespace SoftwareOdontologico.Repositorios
             string sqltxt = $"DELETE FROM Odontologos where nroMatricula = {matricula}";
             return _BD.EjecutarSQL(sqltxt);
         }
-       
+        
+        public Odontologo ObtenerOdontMatricula(string matricula)
+        {
+            //Realizo un consulta a la base de datos, obtengo el odontologo 
+            //para el numero de matricula pero vien een un DataTable
+            string sqltxt = $"SELECT * FROM Odontologos WHERE nroMatricula = {matricula} ";
+            var tabla = _BD.consulta(sqltxt);
+
+            //verifico que haya recibido al menos un objeto, es decir, que el numero de filas > 1
+            if (tabla.Rows.Count == 0) return null;
+
+            var odontologo = new Odontologo();
+            // recorro las filas 
+            foreach (DataRow fila in tabla.Rows)
+            {
+                odontologo.nroMatricula = long.Parse(fila.ItemArray[0].ToString());
+                odontologo.nroDocumento = long.Parse(fila.ItemArray[1].ToString());
+                odontologo.nombre = fila.ItemArray[2].ToString();
+                odontologo.apellido = fila.ItemArray[3].ToString();
+                odontologo.domicilio = fila.ItemArray[4].ToString();
+                odontologo.fechaNacimiento = DateTime.Parse(fila.ItemArray[5].ToString());
+            }
+
+
+            return odontologo;
+
+        }
     }
 }
