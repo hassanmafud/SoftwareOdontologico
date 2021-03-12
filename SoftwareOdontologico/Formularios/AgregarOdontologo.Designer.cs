@@ -160,32 +160,39 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(118, 325);
+            this.btnAgregar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAgregar.Location = new System.Drawing.Point(71, 325);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(98, 23);
             this.btnAgregar.TabIndex = 14;
             this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(242, 325);
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnCancelar.Location = new System.Drawing.Point(217, 325);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 23);
             this.btnCancelar.TabIndex = 15;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(362, 325);
+            this.btnSalir.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnSalir.Location = new System.Drawing.Point(347, 325);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(98, 23);
             this.btnSalir.TabIndex = 16;
             this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // AgregarOdontologo

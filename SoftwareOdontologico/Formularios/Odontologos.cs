@@ -66,7 +66,8 @@ namespace SoftwareOdontologico.Formularios
             var filas = dgvOdontologos.SelectedRows;
             if (filas.Count  == 0 || filas.Count > 1)
             {
-                MessageBox.Show("Debe Seleccionar una fila");
+                
+                MessageBox.Show("Debe Seleccionar una fila","Sistema",MessageBoxButtons.OK,MessageBoxIcon.Exclamation) ;
                 return;
             }
 
@@ -74,7 +75,12 @@ namespace SoftwareOdontologico.Formularios
             {
 
                 var matricula = f.Cells[0].Value.ToString();
-                odontologosRepo.Eliminar(matricula);
+                var elec = MessageBox.Show("Esta seguro que desea eliminar los datos", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if(elec == DialogResult.Yes) { 
+                    odontologosRepo.Eliminar(matricula);
+                }
+                
+                
             }
             
             ActualizarGrilla();
@@ -86,7 +92,7 @@ namespace SoftwareOdontologico.Formularios
             // valido que las filas seleccionadas sea 1
             if (filasSelec.Count == 0 || filasSelec.Count > 1)
             {
-                MessageBox.Show("Debe Seleccionar una fila");
+                MessageBox.Show("Debe Seleccionar una fila", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
 
             }
@@ -96,7 +102,7 @@ namespace SoftwareOdontologico.Formularios
             {
                 // creo una variable nroMatricula donde almacenare la matricula de la fila seleccionada en la dgv
                 var nroMatricula = fila.Cells[0].Value;
-                var elec = MessageBox.Show("Esta seguro que desea modificar los datos","", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var elec = MessageBox.Show("Esta seguro que desea modificar los datos","Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                 if(elec == DialogResult.No)
                 {
                     return;
