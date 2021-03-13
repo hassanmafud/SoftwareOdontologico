@@ -92,9 +92,9 @@
             this.lblNroMatricula.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNroMatricula.Location = new System.Drawing.Point(68, 78);
             this.lblNroMatricula.Name = "lblNroMatricula";
-            this.lblNroMatricula.Size = new System.Drawing.Size(130, 18);
+            this.lblNroMatricula.Size = new System.Drawing.Size(92, 18);
             this.lblNroMatricula.TabIndex = 5;
-            this.lblNroMatricula.Text = "Numero Matricula:";
+            this.lblNroMatricula.Text = "Nº Matricula:";
             // 
             // lblNroDocumento
             // 
@@ -102,9 +102,9 @@
             this.lblNroDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNroDocumento.Location = new System.Drawing.Point(68, 116);
             this.lblNroDocumento.Name = "lblNroDocumento";
-            this.lblNroDocumento.Size = new System.Drawing.Size(148, 18);
+            this.lblNroDocumento.Size = new System.Drawing.Size(110, 18);
             this.lblNroDocumento.TabIndex = 6;
-            this.lblNroDocumento.Text = "Numero Documento:";
+            this.lblNroDocumento.Text = "Nº Documento:";
             // 
             // txtMatricula
             // 

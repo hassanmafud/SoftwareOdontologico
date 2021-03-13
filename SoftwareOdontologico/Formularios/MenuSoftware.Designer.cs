@@ -34,12 +34,13 @@
             this.msMenuPrincipal = new System.Windows.Forms.MenuStrip();
             this.odontologosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarModificarOdontologoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarOdontologoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pacientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarModificarPacienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarModificarTurnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarTurnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarOdontologoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarPacientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,10 +81,20 @@
             this.agregarModificarOdontologoToolStripMenuItem.Text = "Agregar / Modificar Odontologo";
             this.agregarModificarOdontologoToolStripMenuItem.Click += new System.EventHandler(this.AgregarModificarOdont);
             // 
+            // consultarOdontologoToolStripMenuItem
+            // 
+            this.consultarOdontologoToolStripMenuItem.BackColor = System.Drawing.SystemColors.Window;
+            this.consultarOdontologoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("consultarOdontologoToolStripMenuItem.Image")));
+            this.consultarOdontologoToolStripMenuItem.Name = "consultarOdontologoToolStripMenuItem";
+            this.consultarOdontologoToolStripMenuItem.Size = new System.Drawing.Size(314, 22);
+            this.consultarOdontologoToolStripMenuItem.Text = "Consultar Odontologos";
+            this.consultarOdontologoToolStripMenuItem.Click += new System.EventHandler(this.ConsultarOdontologos);
+            // 
             // pacientesToolStripMenuItem
             // 
             this.pacientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarModificarPacienteToolStripMenuItem});
+            this.agregarModificarPacienteToolStripMenuItem,
+            this.consultarPacientesToolStripMenuItem});
             this.pacientesToolStripMenuItem.Font = new System.Drawing.Font("Lucida Console", 9.75F);
             this.pacientesToolStripMenuItem.Name = "pacientesToolStripMenuItem";
             this.pacientesToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
@@ -123,14 +134,12 @@
             this.consultarTurnosToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
             this.consultarTurnosToolStripMenuItem.Text = "Consultar Turnos";
             // 
-            // consultarOdontologoToolStripMenuItem
+            // consultarPacientesToolStripMenuItem
             // 
-            this.consultarOdontologoToolStripMenuItem.BackColor = System.Drawing.SystemColors.Window;
-            this.consultarOdontologoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("consultarOdontologoToolStripMenuItem.Image")));
-            this.consultarOdontologoToolStripMenuItem.Name = "consultarOdontologoToolStripMenuItem";
-            this.consultarOdontologoToolStripMenuItem.Size = new System.Drawing.Size(314, 22);
-            this.consultarOdontologoToolStripMenuItem.Text = "Consultar Odontologo";
-            this.consultarOdontologoToolStripMenuItem.Click += new System.EventHandler(this.ConsultarOdontologos);
+            this.consultarPacientesToolStripMenuItem.Name = "consultarPacientesToolStripMenuItem";
+            this.consultarPacientesToolStripMenuItem.Size = new System.Drawing.Size(298, 22);
+            this.consultarPacientesToolStripMenuItem.Text = "Consultar Pacientes";
+            this.consultarPacientesToolStripMenuItem.Click += new System.EventHandler(this.ConsultarPacientes);
             // 
             // MenuSoftware
             // 
@@ -166,5 +175,6 @@
         private System.Windows.Forms.ToolStripMenuItem agregarModificarTurnoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarTurnosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarOdontologoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarPacientesToolStripMenuItem;
     }
 }

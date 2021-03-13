@@ -36,6 +36,14 @@ namespace SoftwareOdontologico.Modelos
             return false;
 
         }
+        public bool FechaInvalida(DateTime fecha)
+        {
+            if (fecha.AddYears(24) < DateTime.Today)
+            {
+                return true;
+            }
+            return false;
+        }
 
         public bool ValidarNumero(string documento)
         {

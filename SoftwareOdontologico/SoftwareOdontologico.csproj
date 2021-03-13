@@ -100,6 +100,9 @@
     <EmbeddedResource Include="Formularios\AgregarOdontologo.resx">
       <DependentUpon>AgregarOdontologo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\AgregarPaciente.resx">
+      <DependentUpon>AgregarPaciente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\MenuSoftware.resx">
       <DependentUpon>MenuSoftware.cs</DependentUpon>
     </EmbeddedResource>

@@ -79,7 +79,6 @@ namespace SoftwareOdontologico.Formularios
                 return;
             }
             else {odontologo.nroMatricula = long.Parse(txtMatricula.Text); }
-
            
 
             if (!odontologo.ValidarNumero(txtDocumento.Text.ToString()))
@@ -87,8 +86,10 @@ namespace SoftwareOdontologico.Formularios
                 MessageBox.Show("Ingrese correctamente el numero de la Documento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            odontologo.nroDocumento = long.Parse(txtDocumento.Text);
-            
+            else { odontologo.nroDocumento = long.Parse(txtDocumento.Text); }
+           
+    
+
             if (!odontologo.NombreValido())
             {
                 MessageBox.Show("El nombre ingresado no es valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -104,6 +105,12 @@ namespace SoftwareOdontologico.Formularios
             {
                 MessageBox.Show("El domicilio ingresado no es valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+            if (!odontologo.FechaInvalida(dtpFechaNacimiento.Value))
+            {
+                MessageBox.Show("La fecha Ingresada tiene que ser 24 años menor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
             }
 
             if (odontologosRepo.Validar(odontologo.nroMatricula.ToString()))
