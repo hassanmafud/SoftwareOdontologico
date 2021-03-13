@@ -41,13 +41,13 @@ namespace SoftwareOdontologico.Repositorios
          {
             string sqltxt = $"UPDATE [dbo].[Odontologos] SET nroDocumento = '{odontologo.nroDocumento}' , nombre = '{odontologo.nombre}'," +
                 $" apellido = '{odontologo.apellido}' , domicilio ='{odontologo.domicilio}'," +
-                $" fechaNacimiento = '{odontologo.fechaNacimiento.ToString("yyyy-MM-dd")}' WHERE nroMatricula = {matricula} ";
+                $" fechaNacimiento = '{odontologo.fechaNacimiento.ToString("yyyy-MM-dd")}' WHERE nroMatricula = {matricula}";
 
             return _BD.EjecutarSQL(sqltxt);
          }
         public long ObtenerMatriculaOdontologo(string nombre)
         {
-            string sqltxt = $"SELECT *FROM Odontologos WHERE nombre='{nombre}'";
+            string sqltxt = $"SELECT *FROM Odontologos WHERE nombre ='{nombre}'";
             var tabla = _BD.consulta(sqltxt);
 
             var x = new long() ;
@@ -55,7 +55,7 @@ namespace SoftwareOdontologico.Repositorios
             foreach (DataRow f in tabla.Rows)
             {
               
-                x=  long.Parse(f.ItemArray[0].ToString());
+                x =  long.Parse(f.ItemArray[0].ToString());
             }
 
             return x;
@@ -71,7 +71,7 @@ namespace SoftwareOdontologico.Repositorios
         
         public bool Eliminar(string matricula)
         {
-            string sqltxt = $"DELETE FROM Odontologos where nroMatricula = {matricula}";
+            string sqltxt = $"DELETE FROM Odontologos WHERE nroMatricula = {matricula} ";
             return _BD.EjecutarSQL(sqltxt);
         }
         
