@@ -15,7 +15,7 @@ namespace SoftwareOdontologico.Modelos
         public DateTime fechaNacimiento { get; set; }
         public string obraSocial { get; set; }
         public string plan { get; set; }
-        public Odontologo odontologo { get; set; }
+        public long odontologo { get; set; }
 
         public bool NombreValido()
         {

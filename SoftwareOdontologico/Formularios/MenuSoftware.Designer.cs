@@ -136,6 +136,8 @@
             // 
             // consultarPacientesToolStripMenuItem
             // 
+            this.consultarPacientesToolStripMenuItem.BackColor = System.Drawing.SystemColors.Window;
+            this.consultarPacientesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("consultarPacientesToolStripMenuItem.Image")));
             this.consultarPacientesToolStripMenuItem.Name = "consultarPacientesToolStripMenuItem";
             this.consultarPacientesToolStripMenuItem.Size = new System.Drawing.Size(298, 22);
             this.consultarPacientesToolStripMenuItem.Text = "Consultar Pacientes";

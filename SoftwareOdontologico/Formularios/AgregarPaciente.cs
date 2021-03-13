@@ -104,6 +104,11 @@ namespace SoftwareOdontologico.Formularios
                 MessageBox.Show("El plan ingresado no es valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            //prueba cmb
+            var nombre = cmbOdontologo.Text;
+            paciente.odontologo = odontologosRepo.ObtenerMatriculaOdontologo(nombre);
+
             //Me da true ene el caso de que no exista
             if (!pacientesRepo.Validar(paciente.nroDocumento.ToString()))
             {
@@ -117,6 +122,13 @@ namespace SoftwareOdontologico.Formularios
         private void AgregarPaciente_Load(object sender, EventArgs e)
         {
             CargarCombo();
+            //Verifico que la cantidada de odontologos registrados sea mayor a 1.
+            if (cmbOdontologo.Items.Count > 1)
+            {   
+                //Posiciono el combo en el valor 1, que seria la posicion 2 del combo
+                cmbOdontologo.SelectedIndex = 1;
+            }
+            
         }
     }
 }

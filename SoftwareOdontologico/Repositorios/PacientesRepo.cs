@@ -21,9 +21,9 @@ namespace SoftwareOdontologico.Repositorios
         public bool Guardar(Paciente paciente)
         {
 
-            string sqltxt = $" INSERT Pacientes ([nroDocumento],[nombre],[apellido],[domicilio],[fechaNacimiento], [obraSocial], [plan])" +
+            string sqltxt = $" INSERT Pacientes ([nroDocumento],[nombre],[apellido],[domicilio],[fechaNacimiento], [obraSocial], [plan],[odontologo])" +
                 $" VALUES('{paciente.nroDocumento}','{paciente.nombre}','{paciente.apellido}','{paciente.domicilio}'," +
-                $"'{paciente.fechaNacimiento.ToString("yyyy-MM-dd")}','{paciente.obraSocial}','{paciente.plan}')";
+                $"'{paciente.fechaNacimiento.ToString("yyyy-MM-dd")}','{paciente.obraSocial}','{paciente.plan}',{paciente.odontologo})";
 
             return _BD.EjecutarSQL(sqltxt);
         }

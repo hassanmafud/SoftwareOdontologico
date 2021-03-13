@@ -45,7 +45,23 @@ namespace SoftwareOdontologico.Repositorios
 
             return _BD.EjecutarSQL(sqltxt);
          }
+        public long ObtenerMatriculaOdontologo(string nombre)
+        {
+            string sqltxt = $"SELECT *FROM Odontologos WHERE nombre='{nombre}'";
+            var tabla = _BD.consulta(sqltxt);
 
+            var x = new long() ;
+            //recorro la tabla en la cual esta inserto el odontologo buscado
+            foreach (DataRow f in tabla.Rows)
+            {
+              
+                x=  long.Parse(f.ItemArray[0].ToString());
+            }
+
+            return x;
+
+
+        }
         public DataTable ObtenerOdontologosDT()
         {
             string sqltxt = "SELECT * FROM Odontologos";
