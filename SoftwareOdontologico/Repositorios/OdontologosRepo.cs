@@ -29,7 +29,7 @@ namespace SoftwareOdontologico.Repositorios
         }
         public bool Validar(string matricula)
         {
-            string sqltxt = $"SELECT nroMatricula FROM Odontologos WHERE nroMatricula = {matricula}";
+            string sqltxt = $"SELECT nroMatricula FROM Odontologos WHERE nroMatricula= {matricula}";
             var tabla = _BD.consulta(sqltxt);
             var resultado = tabla.Rows.Count;
             if (resultado > 0) return false;
@@ -47,7 +47,7 @@ namespace SoftwareOdontologico.Repositorios
          }
         public long ObtenerMatriculaOdontologo(string nombre)
         {
-            string sqltxt = $"SELECT *FROM Odontologos WHERE nombre ='{nombre}'";
+            string sqltxt = $"SELECT *FROM Odontologos WHERE nombre = '{nombre}'";
             var tabla = _BD.consulta(sqltxt);
 
             var x = new long() ;
@@ -71,7 +71,7 @@ namespace SoftwareOdontologico.Repositorios
         
         public bool Eliminar(string matricula)
         {
-            string sqltxt = $"DELETE FROM Odontologos WHERE nroMatricula = {matricula} ";
+            string sqltxt = $"DELETE FROM Odontologos WHERE nroMatricula={matricula}";
             return _BD.EjecutarSQL(sqltxt);
         }
         

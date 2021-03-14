@@ -48,7 +48,7 @@ namespace SoftwareOdontologico.Modelos
         public bool ValidarNumero(string documento)
         {
             //Controlamos que el numero ingresado sea long y no contenga letras, ni caracteres.
-            if (long.TryParse(documento, out long resultado) ) { return true; }
+            if (long.TryParse(documento, out long resultado) ) { return true;}
             return false;
 
         }

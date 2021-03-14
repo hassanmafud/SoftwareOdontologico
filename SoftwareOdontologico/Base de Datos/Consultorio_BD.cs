@@ -19,9 +19,9 @@ namespace SoftwareOdontologico.Base_de_Datos
         string cadena_conexion = "Data Source=(localdb)\\SQLPymes;Initial Catalog=Consultorio;Integrated Security=True";
         private void conectar()
         {
-
+            //Se establece a la cadena de coneccion que se va a conectar
             conexion.ConnectionString = cadena_conexion;
-
+            // se abre la conexion
             conexion.Open();
 
             cmd.Connection = conexion;

@@ -33,7 +33,7 @@
             this.cmbOdontologo = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.gboxOdontologo = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPacientes = new System.Windows.Forms.DataGridView();
             this.nroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +46,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.gboxOdontologo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).BeginInit();
             this.SuspendLayout();
             // 
             // lblPacientes
@@ -86,6 +86,7 @@
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // gboxOdontologo
             // 
@@ -99,10 +100,10 @@
             this.gboxOdontologo.TabStop = false;
             this.gboxOdontologo.Text = "Seleccion Odontologo";
             // 
-            // dataGridView1
+            // dgvPacientes
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPacientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nroDocumento,
             this.nombre,
             this.apellido,
@@ -111,10 +112,10 @@
             this.obraSocial,
             this.plan,
             this.odontologo});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 158);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(673, 203);
-            this.dataGridView1.TabIndex = 6;
+            this.dgvPacientes.Location = new System.Drawing.Point(12, 158);
+            this.dgvPacientes.Name = "dgvPacientes";
+            this.dgvPacientes.Size = new System.Drawing.Size(673, 203);
+            this.dgvPacientes.TabIndex = 6;
             // 
             // nroDocumento
             // 
@@ -192,7 +193,7 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvPacientes);
             this.Controls.Add(this.gboxOdontologo);
             this.Controls.Add(this.lblPacientes);
             this.Name = "Pacientes";
@@ -200,7 +201,7 @@
             this.Load += new System.EventHandler(this.Pacientes_Load);
             this.gboxOdontologo.ResumeLayout(false);
             this.gboxOdontologo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPacientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,7 +214,7 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.ComboBox cmbOdontologo;
         private System.Windows.Forms.GroupBox gboxOdontologo;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPacientes;
         private System.Windows.Forms.DataGridViewTextBoxColumn nroDocumento;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido;

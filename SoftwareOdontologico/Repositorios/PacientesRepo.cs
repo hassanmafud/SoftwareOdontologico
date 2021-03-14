@@ -30,13 +30,26 @@ namespace SoftwareOdontologico.Repositorios
 
         public bool Validar(string dni)
         {
-            string sqltxt = $"SELECT * FROM Pacientes WHERE nroDocumento = {dni}";
+            string sqltxt = $"SELECT * FROM Pacientes WHERE nroDocumento = {dni}" ;
             DataTable tabla = _BD.consulta(sqltxt);
             if (tabla.Rows.Count > 0)
             {
                 return true;
             }
             return false;
+        }
+
+        public DataTable ObtenerPacientesDTmat(string matricula)
+        {
+            string sqltxt = $"SELECT * FROM Pacientes WHERE odontologo = {matricula}";
+            var tablaPacientes = _BD.consulta(sqltxt);
+            return tablaPacientes;
+        }
+        public DataTable ObtenerPacientesDT()
+        {
+            string sqltxt = $"SELECT * FROM Pacientes ";
+            var tablaPacientes = _BD.consulta(sqltxt);
+            return tablaPacientes;
         }
     }
 }

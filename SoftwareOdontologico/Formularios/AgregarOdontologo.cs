@@ -86,7 +86,8 @@ namespace SoftwareOdontologico.Formularios
                 MessageBox.Show("Ingrese correctamente el numero de la Documento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else { odontologo.nroDocumento = long.Parse(txtDocumento.Text); }
+
+            odontologo.nroDocumento = long.Parse(txtDocumento.Text);
            
     
 
@@ -124,10 +125,10 @@ namespace SoftwareOdontologico.Formularios
             }
             //verifico que a la hora de modificar un odontologo el numero de matricula
             //no es el mismo elimino el anterior odontologo registrado
-            if (nroMat != txtMatricula.Text)
-            {
-                 odontologosRepo.Eliminar(nroMat);
-            }
+            //if (nroMat != txtMatricula.Text)
+            //{
+            //     odontologosRepo.Eliminar(nroMat);
+            //}
             else
             {
                 
