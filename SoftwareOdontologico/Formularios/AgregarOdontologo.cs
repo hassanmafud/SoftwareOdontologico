@@ -15,11 +15,13 @@ namespace SoftwareOdontologico.Formularios
     public partial class AgregarOdontologo : Form
     {
         OdontologosRepo odontologosRepo;
+        PacientesRepo pacientesRepo;
         Odontologo odont;
         string nroMat;
         public AgregarOdontologo()
         {
             InitializeComponent();
+            pacientesRepo = new PacientesRepo();
             odontologosRepo = new OdontologosRepo();
 
         }
@@ -29,6 +31,7 @@ namespace SoftwareOdontologico.Formularios
         {
             InitializeComponent(); 
             odontologosRepo = new OdontologosRepo();
+            pacientesRepo = new PacientesRepo();
             odont = odontologosRepo.ObtenerOdontMatricula(matricula);
             nroMat = matricula;
             RellenarFormEditable();
@@ -116,22 +119,36 @@ namespace SoftwareOdontologico.Formularios
 
             if (odontologosRepo.Validar(odontologo.nroMatricula.ToString()))
             {
-                if (odontologosRepo.Guardar(odontologo))
+                //verifico que a la hora de modificar un odontologo el numero de matricula
+                //no es el mismo elimino el anterior odontologo registrado
+                if (nroMat != txtMatricula.Text.ToString())
                 {
-                  
-                    MessageBox.Show("Odontologo Registrado con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LimpiarCampos();
+                    var nombreApellido = txtNombre.Text + txtApellido.Text;
+                    var tablaPacientesOdont = pacientesRepo.ObtenerPacientesDTmat(nroMat);
+                    if (tablaPacientesOdont.Rows.Count > 0)
+                    {
+                        MessageBox.Show($"El Odontologo {nombreApellido} tiene Pacientes registrados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
+                    else 
+                    {
+                        odontologosRepo.Eliminar(nroMat);
+                        if (odontologosRepo.Guardar(odontologo))
+                        {
+
+                            MessageBox.Show("Odontologo Registrado con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LimpiarCampos();
+                            
+                        }
+                    }
+                   
                 }
+                
             }
-            //verifico que a la hora de modificar un odontologo el numero de matricula
-            //no es el mismo elimino el anterior odontologo registrado
-            //if (nroMat != txtMatricula.Text)
-            //{
-            //     odontologosRepo.Eliminar(nroMat);
-            //}
             else
             {
                 
+
                 //MessageBox requiere 4 parametros.
                 string mensajePrincipal = "El Odontologo ya se encuentra registrado";
                 string mensaje = "Desea Modificar los Datos";
@@ -140,6 +157,7 @@ namespace SoftwareOdontologico.Formularios
                 {
                     if (odontologosRepo.Actualizar(odontologo , odontologo.nroMatricula.ToString())) 
                     { MessageBox.Show("Datos Actualizados con Exito"); }
+                    this.Close();
                 }
 
                 LimpiarCampos();

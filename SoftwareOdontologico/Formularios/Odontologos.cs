@@ -14,8 +14,10 @@ namespace SoftwareOdontologico.Formularios
     public partial class Odontologos : Form
     {
         OdontologosRepo odontologosRepo;
+        PacientesRepo pacientesRepo;
         public Odontologos()
         {
+            pacientesRepo = new PacientesRepo();
             odontologosRepo = new OdontologosRepo();
             InitializeComponent();
         }
@@ -75,9 +77,17 @@ namespace SoftwareOdontologico.Formularios
             {
 
                 var matricula = f.Cells[0].Value.ToString();
+                var nombreApellido = f.Cells[2].Value.ToString() +" "+ f.Cells[3].Value.ToString();
                 var elec = MessageBox.Show("Esta seguro que desea eliminar los datos", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-                if(elec == DialogResult.Yes) { 
-                    odontologosRepo.Eliminar(matricula);
+                if(elec == DialogResult.Yes) {
+                    var tablaPacientesOdont = pacientesRepo.ObtenerPacientesDTmat(matricula);
+                    if (tablaPacientesOdont.Rows.Count>0)
+                    {
+                        MessageBox.Show($"El Odontologo {nombreApellido} tiene Pacientes registrados", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        
+                    }
+                    else { odontologosRepo.Eliminar(matricula); }
+                    
                 }
                 
                 

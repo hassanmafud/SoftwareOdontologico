@@ -16,11 +16,53 @@ namespace SoftwareOdontologico.Formularios
     {
         PacientesRepo pacientesRepo;
         OdontologosRepo odontologosRepo;
+        //string doc;
+        Paciente paciente;
         public AgregarPaciente()
         {
             pacientesRepo = new PacientesRepo();
             odontologosRepo = new OdontologosRepo();
             InitializeComponent();
+        }
+        public AgregarPaciente(string documento)
+        {
+            pacientesRepo = new PacientesRepo();
+            odontologosRepo = new OdontologosRepo();
+            InitializeComponent();
+            paciente = pacientesRepo.ObtenerPacienteDocumento(documento);
+            rellenarFormulario();
+
+        }
+        private void rellenarFormulario()
+        {
+            txtDocumento.Text = paciente.nroDocumento.ToString();
+            txtNombre.Text = paciente.nombre;
+            txtApellido.Text = paciente.apellido;
+            txtDomicilio.Text = paciente.domicilio;
+            dtpFechaNacimiento.Value = paciente.fechaNacimiento;
+            txtObraSocial.Text = paciente.obraSocial;
+            txtPlan.Text = paciente.plan;
+
+            var odont = odontologosRepo.ObtenerOdontMatricula(paciente.odontologo.ToString());
+
+            var tablaOdont = odontologosRepo.ObtenerOdontologosDT();
+
+            cmbOdontologo.SelectedValue = odont.nombre;
+            for (int i = 0; i < tablaOdont.Rows.Count; i++)
+            {
+                foreach (DataRow f in tablaOdont.Rows)
+                {
+
+                    if (f.ItemArray[0].ToString().Equals(paciente.odontologo.ToString()))
+                    {
+                        cmbOdontologo.SelectedText = odont.nombre;
+                    }
+
+                }
+            }
+
+
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -112,23 +154,43 @@ namespace SoftwareOdontologico.Formularios
             //Me da true ene el caso de que no exista
             if (!pacientesRepo.Validar(paciente.nroDocumento.ToString()))
             {
-                pacientesRepo.Guardar(paciente);
-                MessageBox.Show("");
+                if(pacientesRepo.Guardar(paciente))
+                {
+                    MessageBox.Show("Paciente Registrado con exito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarCampos();
+
+                }
+
             }
-            else { MessageBox.Show("El paciente ya se encuentra registrado"); }
-            
+            else
+            {
+
+
+                //MessageBox requiere 4 parametros.
+                string mensajePrincipal = "El Paciente ya se encuentra registrado";
+                string mensaje = "Desea Modificar los Datos";
+                var result = MessageBox.Show(mensaje, mensajePrincipal, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    //if (odontologosRepo.Actualizar(paciente, paciente.nroMatricula.ToString()))
+                    { MessageBox.Show("Datos Actualizados con Exito"); }
+                    this.Close();
+                }
+
+                LimpiarCampos();
+            }
         }
 
         private void AgregarPaciente_Load(object sender, EventArgs e)
         {
             CargarCombo();
             //Verifico que la cantidada de odontologos registrados sea mayor a 1.
-            if (cmbOdontologo.Items.Count > 1)
-            {   
-                //Posiciono el combo en el valor 1, que seria la posicion 2 del combo
-                cmbOdontologo.SelectedIndex = 1;
-            }
-            
+            //if (cmbOdontologo.Items.Count > 1)
+            //{
+            //    //Posiciono el combo en el valor 1, que seria la posicion 2 del combo
+            //    cmbOdontologo.SelectedIndex = 1;
+            //}
+
         }
     }
 }

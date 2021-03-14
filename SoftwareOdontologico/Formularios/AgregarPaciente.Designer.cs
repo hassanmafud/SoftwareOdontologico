@@ -191,6 +191,7 @@
             // 
             // cmbOdontologo
             // 
+            this.cmbOdontologo.Cursor = System.Windows.Forms.Cursors.Default;
             this.cmbOdontologo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOdontologo.FormattingEnabled = true;
             this.cmbOdontologo.Location = new System.Drawing.Point(192, 375);

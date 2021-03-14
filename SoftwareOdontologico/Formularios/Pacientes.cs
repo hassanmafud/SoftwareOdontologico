@@ -34,7 +34,7 @@ namespace SoftwareOdontologico.Formularios
 
         private void Pacientes_Load(object sender, EventArgs e)
         {
-            ActualizarGrilla(0);
+            
             cargarCombo();
         }
 
@@ -89,6 +89,58 @@ namespace SoftwareOdontologico.Formularios
             var nombreOdontCmb = cmbOdontologo.Text;
             var matriculaOdontCmb = odontologosRepo.ObtenerMatriculaOdontologo(nombreOdontCmb);
             ActualizarGrilla(matriculaOdontCmb);
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            var filasSelec = dgvPacientes.SelectedRows;
+            if (filasSelec.Count == 0 || filasSelec.Count > 1)
+            {
+
+                MessageBox.Show("Debe Seleccionar una fila", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            foreach (DataGridViewRow f in filasSelec)
+            {
+
+                var nombreApellido = f.Cells[1].Value.ToString() + " " + f.Cells[2].Value.ToString();
+                var documento = f.Cells[0].Value.ToString();
+                var matri = long.Parse(f.Cells[7].Value.ToString());
+
+                var elec = MessageBox.Show($"Esta seguro que desea eliminar el Paciente {nombreApellido}", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (elec == DialogResult.Yes)
+                {
+                    pacientesRepo.Eliminar(documento);
+                }
+                ActualizarGrilla(matri);
+            }
+            
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            var filasSelec = dgvPacientes.SelectedRows;
+            if (filasSelec.Count == 0 || filasSelec.Count > 1)
+            {
+
+                MessageBox.Show("Debe Seleccionar una fila", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            foreach (DataGridViewRow f in filasSelec)
+            {
+                var documento = f.Cells[0].Value.ToString();
+                var nombreApellido = f.Cells[1].Value.ToString() + " " + f.Cells[2].Value.ToString();
+                var matri = long.Parse(f.Cells[7].Value.ToString());
+                var elec = MessageBox.Show($"Esta seguro que desea modificar el Paciente {nombreApellido}", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (elec == DialogResult.No)
+                {
+                    return;
+                }
+                var mod_pac = new AgregarPaciente(documento);
+                mod_pac.ShowDialog();
+                ActualizarGrilla(matri);
+            }
 
         }
     }
